@@ -9,7 +9,7 @@
 4.GET MTZ (MAKE-VECTOR X)
 5.GE (FULL-FILE)
 6.IF FILE > X THEN 
-6.1
+  6.1
 #. END
 
 ; Operación a la 2048
