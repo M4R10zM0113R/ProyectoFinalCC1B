@@ -1,0 +1,80 @@
+1. BEGIN
+2. GET Filas
+3. GET Columnas
+4. MAKE matriz
+5. LENGTH(matriz) <- Filas
+6. FOR posicion -> 0 TO (LENGTH(matriz) - 1) DO
+   6.1. MAKE fila_matriz
+   6.2. LENGTH(fila_matriz) <- Columnas
+   6.3. FOR sub_posicion -> 0 TO (LENGTH(fila_matriz) - 1) DO
+   	6.3.1. fila_matriz[sub_posicion] <- 0
+	6.3.2. sub_posicion <- sub_posicion + 1
+   	END FOR
+   6.4. matriz[posicion] <- fila_matriz
+   6.5. posicion <- posicion + 1
+   END FOR
+7. OUTPUT matriz
+
+En ejecución (Ejemplo):
+Filas = 5
+Columnas = 6
+matriz = < - , - , - , - , - >
+       FOR(1):
+       fila_matriz = < - , - , - , - , - , - > ; fila_matriz sólo se crea mientras dure el FOR dentro del FOR precedente.
+       		   FOR(1.1):
+		   fila_matriz = < 0 , 0 , 0 , 0 , 0 , 0 >
+       matriz = <
+       	      	  < 0 , 0 , 0 , 0 , 0 , 0 >,
+       	      	  - , - , - , -
+		>
+       FOR(2):
+       fila_matriz = < - , - , - , - , - , - >
+       		   FOR(2.1):
+		   fila_matriz = < 0 , 0 , 0 , 0 , 0 , 0 >
+       matriz = <
+       	      	  < 0 , 0 , 0 , 0 , 0 , 0 >,
+       	      	  < 0 , 0 , 0 , 0 , 0 , 0 >,
+		  - , - , -
+		>
+       FOR(3):
+       fila_matriz = < - , - , - , - , - , - >
+       		   FOR(3.1):
+		   fila_matriz = < 0 , 0 , 0 , 0 , 0 , 0 >
+       matriz = <
+       	      	  < 0 , 0 , 0 , 0 , 0 , 0 >,
+       	      	  < 0 , 0 , 0 , 0 , 0 , 0 >,
+		  < 0 , 0 , 0 , 0 , 0 , 0 >,
+		  - , -
+		>
+       FOR(4):
+       fila_matriz = < - , - , - , - , - , - >
+       		   FOR(4.1):
+		   fila_matriz = < 0 , 0 , 0 , 0 , 0 , 0 >
+       matriz = <
+       	      	  < 0 , 0 , 0 , 0 , 0 , 0 >,
+       	      	  < 0 , 0 , 0 , 0 , 0 , 0 >,
+		  < 0 , 0 , 0 , 0 , 0 , 0 >,
+		  < 0 , 0 , 0 , 0 , 0 , 0 >,
+		  -
+		>
+       FOR(5):
+       fila_matriz = < - , - , - , - , - , - >
+       		   FOR(5.1):
+		   fila_matriz = < 0 , 0 , 0 , 0 , 0 , 0 >
+       matriz = < < 0 , 0 , 0 , 0 , 0 , 0 >,
+       	      	  < 0 , 0 , 0 , 0 , 0 , 0 >,
+		  < 0 , 0 , 0 , 0 , 0 , 0 >,
+		  < 0 , 0 , 0 , 0 , 0 , 0 >,
+		  < 0 , 0 , 0 , 0 , 0 , 0 >
+		>
+; Se puede reducir la cantidad de pasos a ejecutar en el pseudocódigo, pero eso implica que se tiene que redefinir todo el mismo.
+
+Programáticamente:
+    C   C   C
+  <
+F < 1 , 0 , 0 >,
+F < 0 , 1 , 0 >,
+F < 0 , 0 , 1 >
+  >
+; Matriz identidad
+; Es indiferente el cómo se lean, mientras se tenga idea de cómo operarlos.
