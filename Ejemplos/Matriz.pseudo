@@ -15,7 +15,7 @@
    END FOR
 7. OUTPUT matriz
 8. END
-; Sólamente funciona para creat matrices de FxC. Será otro ejemplo para operar y referir a los valores en la misma.
+; Sólamente funciona para crear matrices de FxC. Será otro ejemplo para operar y referir a los valores en la misma.
 
 En ejecución (Ejemplo):
 Filas = 5
