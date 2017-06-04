@@ -1,1 +1,3 @@
-# 2048, Utilizando Racket (LISP)
+# 2048, utilizando Racket (LISP)
+Integrantes:
+  Mario Möller, 16012890
