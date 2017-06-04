@@ -1,0 +1,16 @@
+; Obtiene la matriz del ejemplo para hacer referencia
+1. BEGIN
+2. GET matriz_a_referir_de
+2. GET ref_F
+3. GET ref_C
+4. OUTPUT matriz_a_referir_de[ref_F[ref_C]]
+5. END
+
+; Ejemplo:
+matriz_a_referir_de = <
+		        < 1 , 2 , 3 >
+			< 6 , 5 , 4 >
+		      >
+ref_F=2
+ref_C=2
+OUTPUT: 5
