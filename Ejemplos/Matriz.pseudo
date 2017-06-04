@@ -20,13 +20,13 @@ Filas = 5
 Columnas = 6
 matriz = < - , - , - , - , - >
        FOR(1):
-       fila_matriz = < - , - , - , - , - , - > ; fila_matriz sólo se crea mientras dure el FOR dentro del FOR precedente.
+       fila_matriz = < - , - , - , - , - , - > ; fila_matriz sólo se crea mientras dure el FOR.
        		   FOR(1.1):
-		   fila_matriz = < 0 , 0 , 0 , 0 , 0 , 0 >
+		   fila_matriz = < 0 , 0 , 0 , 0 , 0 , 0 > ; Se rellena durante el FOR debajo del otro FOR.
        matriz = <
        	      	  < 0 , 0 , 0 , 0 , 0 , 0 >,
        	      	  - , - , - , -
-		>
+		> ; Se agrega fila_matriz a matriz, iteración 1.
        FOR(2):
        fila_matriz = < - , - , - , - , - , - >
        		   FOR(2.1):
@@ -35,7 +35,7 @@ matriz = < - , - , - , - , - >
        	      	  < 0 , 0 , 0 , 0 , 0 , 0 >,
        	      	  < 0 , 0 , 0 , 0 , 0 , 0 >,
 		  - , - , -
-		>
+		> ; Se agrega fila_matriz a matriz, iteración 2... etc.
        FOR(3):
        fila_matriz = < - , - , - , - , - , - >
        		   FOR(3.1):
