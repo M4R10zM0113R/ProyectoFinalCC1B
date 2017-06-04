@@ -14,6 +14,7 @@
    6.5. posicion <- posicion + 1
    END FOR
 7. OUTPUT matriz
+8. END
 
 En ejecución (Ejemplo):
 Filas = 5
