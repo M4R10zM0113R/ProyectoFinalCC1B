@@ -1,6 +1,8 @@
 #| Proyecto Final CC1B
 Integrantes:
 	Mario Möller, 16012890
+Control de Versión:
+https://github.com/M4R10zM0113R/ProyectoFinalCC1B
 |#
 
 #| Librerias Requeridas |#
