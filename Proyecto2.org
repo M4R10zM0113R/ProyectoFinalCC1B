@@ -1,0 +1,335 @@
+* DONE Formato
+  CLOSED: [2017-05-24 Wed 15:01]
+* Proyecto #2: 2048
+Ciencias de la Computacion I - 2017
+Proyecto #2 - 2048
+Proyecto: 2048
+Grupos: Grupos de tres o cuatro personas
+Fecha de entrega: 8 de junio antes de las 9:00 AM 
+Fecha de calificacion: 8 de junio despues de las 9:00 AM
+* Especificaciones
+Lea detenidamente todas las especificaciones antes de comenzar a hacer
+algo. Estos proyectos usualmente toman mucho tiempo. Usted tiene hasta
+la fecha indicada arriba para entregarlo, asi que organice su
+tiempo. Si tienen alguna duda acerca de estas especificaciones por
+favor, pregunte al catedratico.
+
+Para este proyecto, debe hacer una version propia del famoso juego
+de 2048. Si nunca lo ha jugado, existe el juego en Internet o para
+Smartphones para que lo pueda probar y vea como funciona. Dado que lo
+que tiene que hacer es replicar el juego, es importante que todos los
+integrantes del grupo aprendan a jugarlo para que entiendan bien su
+comportamiento.
+
+El comportamiento del juego, debe ser el mismo, sin embargo para este
+proyecto en particular, debe seguir con las siguientes
+especificaciones:
+* Descripción
+2048 se juega en un tablero de 4x4 casillas en las cuales se van a
+guardar numeros que son potencias de 2. La idea es ir sumando estos
+numeros hasta que en una de las casillas quede el 2048. Las reglas del
+juego son las siguientes:
+
+El tablero empieza con dos casillas llenas, elegidas aleatoriamente,
+en las cuales puede haber un 2 o un 4.
+
+Los movimientos que tiene el usuario son cuatro: mover para arriba,
+mover para abajo, mover a la izquierda y mover a la derecha.
+
+Al hacer un movimiento TODOS los numeros existentes dentro del
+tablero, se mueven hacia la direccion que se haya indicado. Ademas de
+moverse, algunos numeros pueden sumarse entre si, las reglas a seguir
+para sumar se les explicaran mas adelante.
+
+Cada vez que se haga un movimiento, debe aparecer en una de las
+casillas que queden vacias un nuevo numero, el cual puede ser un 2 o
+un 4, y debe ser elegido aleatoriamente, asi como la casilla en donde
+aparecera. El nuevo numero aparece si y solo si, el movimiento resulta
+en mover uno o mas numeros, si nada se mueve, no puede aparecer el
+numero nuevo.
+
+El juego se gana, si una de las casillas llega a contener 2048, y a
+diferencia del juego original, ya no se deja jugar mas.
+
+El juego se pierde, si el tablero queda lleno, y ya no hay oportunidad
+de hacer ningun movimiento, es decir que ninguna de las casillas puede
+sumarse con otra, para ninguno de los lados.
+** Reglas de Suma de Casillas:
+Al hacer un movimiento, algunas casillas pueden sumar sus valores
+"convirtiendose" en una sola, es decir que el valor sumado queda en
+una casilla, y la otra se vacia. Las reglas para realizar esta suma
+son las siguientes:
+
+Los numeros de dos casillas se pueden sumar si y solo si son iguales,
+y estan a la par (es decir que estan en casillas consecutivas en la
+fila o la columna).
+
+Ejemplo:
+            En estos dos tableros, los 2 si se pueden sumar:
+    
+            +------+------+------+------+               +------+------+------+------+
+            |      |      |      |      |               |      |      |      |      |
+            +------+------+------+------+               +------+------+------+------+
+            |      |      |   2  |      |               |      |   2  |   2  |      |
+            +------+------+------+------+               +------+------+------+------+            
+            |      |      |   2  |      |               |      |      |      |      |
+            +------+------+------+------+               +------+------+------+------+
+            |      |      |      |      |               |      |      |      |      |
+            +------+------+------+------+               +------+------+------+------+ 
+            
+            En estos dos tableros, los 2 no se pueden sumar:
+            
+            +------+------+------+------+               +------+------+------+------+
+            |      |      |      |      |               |   2  |      |      |      |
+            +------+------+------+------+               +------+------+------+------+
+            |   2  |      |   2  |      |               |      |      |   2  |      |
+            +------+------+------+------+               +------+------+------+------+            
+            |      |      |      |      |               |      |      |      |      |
+            +------+------+------+------+               +------+------+------+------+
+            |      |      |      |      |               |      |      |      |      |
+            +------+------+------+------+               +------+------+------+------+             
+                                   
+El resultado de la suma queda en la casilla mas cercana a la direccion
+del movimiento. Es decir que si hubieran dos casillas cosecutivas con
+numeros iguales en una fila, y el jugador elige mover a la derecha, la
+suma de ambas quedaria en la casilla mas a la derecha y la otra
+quedaria vacia. Ademas, al hacer el movimiento, todos los numeros
+deben correrse hacia ese lado, tanto los numeros que no pueden ser
+sumados, como los que si.  La suma de los numeros solo puede suceder,
+si la direccion del movimiento lo permite, es decir que si para una
+casilla, existe posibilidad de suma con la casilla de arriba, esto
+solo puede suceder, si el jugador elije hacer un movimiento para
+arriba (o para abajo).
+
+Ejemplo:
+
+            Suponga el siguiente tablero:
+    
+            +------+------+------+------+               
+            |      |      |      |      |               
+            +------+------+------+------+              
+            |      |      |   2  |      |              
+            +------+------+------+------+                       
+            |      |   2  |   2  |      |               
+            +------+------+------+------+              
+            |      |      |      |      |               
+            +------+------+------+------+                
+            
+            Con un movimiento a la derecha              Con un movimiento a la izquierda
+            quedaria asi:                               quedaria asi:
+            
+            +------+------+------+------+               +------+------+------+------+
+            |      |      |      |      |               |      |      |      |      |
+            +------+------+------+------+               +------+------+------+------+
+            |      |      |      |   2  |               |   2  |      |      |      |
+            +------+------+------+------+               +------+------+------+------+            
+            |      |      |      |   4  |               |   4  |      |      |      |
+            +------+------+------+------+               +------+------+------+------+
+            |      |      |      |      |               |      |      |      |      |
+            +------+------+------+------+               +------+------+------+------+             
+
+            Con un movimiento hacia arriba              Con un movimiento hacia abajo
+            quedaria asi:                               quedaria asi:
+            
+            +------+------+------+------+               +------+------+------+------+
+            |      |   2  |   4  |      |               |      |      |      |      |
+            +------+------+------+------+               +------+------+------+------+
+            |      |      |      |      |               |      |      |      |      |
+            +------+------+------+------+               +------+------+------+------+            
+            |      |      |      |      |               |      |      |      |      |
+            +------+------+------+------+               +------+------+------+------+
+            |      |      |      |      |               |      |   2  |   4  |      |
+            +------+------+------+------+               +------+------+------+------+                                         
+
+Solo se pueden sumar dos casillas consecutivas, es decir que si hay
+tres numeros iguales consecutivos, solo dos de ellos se van a sumar, y
+otro se va a quedar igual. Si hay cuatro numeros consecutivos, se
+sumarian en pares, los primeras dos, y despues los siguientes dos.  Si
+hay posibilidad de sumar varias casillas en una sola linea, es decir
+que hay mas de dos numeros iguales consecutivos en la misma linea, se
+van a sumar los que estan mas cercanas a la direccion del movimiento
+que haya elegido el jugador.
+
+Ejemplo:
+
+            Suponga el siguiente tablero:
+    
+            +------+------+------+------+               
+            |   4  |      |   2  |      |               
+            +------+------+------+------+              
+            |   4  |      |   2  |      |              
+            +------+------+------+------+                       
+            |   2  |   2  |   2  |   2  |               
+            +------+------+------+------+              
+            |      |      |      |      |               
+            +------+------+------+------+                
+            
+            Con un movimiento a la derecha              Con un movimiento hacia arriba
+            quedaria asi:                               quedaria asi:
+            
+            +------+------+------+------+               +------+------+------+------+
+            |      |      |   4  |   2  |               |   8  |   2  |   4  |   2  |
+            +------+------+------+------+               +------+------+------+------+
+            |      |      |   4  |   2  |               |   2  |      |   2  |      |
+            +------+------+------+------+               +------+------+------+------+            
+            |      |      |   4  |   4  |               |      |      |      |      |
+            +------+------+------+------+               +------+------+------+------+
+            |      |      |      |      |               |      |      |      |      |
+            +------+------+------+------+               +------+------+------+------+ 
+ 
+             Con un movimiento a la izquierda              Con un movimiento hacia abajo
+            quedaria asi:                               quedaria asi:
+            
+            +------+------+------+------+               +------+------+------+------+
+            |   4  |   2  |      |      |               |      |      |      |      |
+            +------+------+------+------+               +------+------+------+------+
+            |   4  |   2  |      |      |               |      |      |      |      |
+            +------+------+------+------+               +------+------+------+------+            
+            |   4  |   4  |      |      |               |   8  |      |   2  |      |
+            +------+------+------+------+               +------+------+------+------+
+            |      |      |      |      |               |   2  |   2  |   4  |   2  |
+            +------+------+------+------+               +------+------+------+------+ 
+* Proyecto a realizar
+** Interfaz: 
+Su proyecto debe ser implementado en DrRacket, y debe tener una
+interfaz grafica, dibujos, imagenes, etc... El tablero debe aparecer
+en pantalla en grafico, en la forma y colores que usted elija, que sea
+entendible y si debe representar una cuadricula.
+*** Modos de Juego: 
+Para este proyecto va a tener dos modalidades:
+**** Jugador vrs Jugador
+La cual debe permitir un juego entre dos personas, que permita que
+cada persona sea la que decida los movimientos de su juego. En este
+caso, ambos empiezan con la misma configuracion de tablero, y se juega
+hasta que ambos se queden sin movimientos (el tablero se llena), o
+ambos lleguen a el valor maximo (ejemplo : 2048). Mas adelante se
+explicaran las reglas para sabe quien de los dos gana el juego.
+**** Jugaror vrs Maquina
+En el que una persona jugara contra un algoritmo de maquina
+inteligente.
+*** Juego: 
+Este juego debe jugarse "en red" por lo que debe estar compuesto por
+dos programas, un programa servidor y uno cliente. El servidor es el
+que sera encargado de (1) mandar el tablero de juego a los dos
+clientes y (2) mandar los resultados del juego a ambos clientes cuando
+el juego entre los dos haya terminado. El programa cliente debe estar
+corriendo en dos computadoras en donde estaran jugando ambos
+jugadores. El servidor estara ejecutandose en una tercera computadora,
+y ambos clientes se estaran comunicando con el (no entre ellos).
+
+Para ejecutar el juego, el servidor debe estar corriendo primero. Como
+se le indico antes, usted debe implementar una version propia del
+juego 2048, el cual trabaja con potencias de 2. En el caso de este
+proyecto, va a tener una variacion en la base (el 2) con la que 2048
+trabaja, y en vez de eso, se va a permitir elegir cual sera la base
+(un numero entre 2 y 9) que se estara elevando durante el juego. Esta
+base, debe ser elegida a la hora de empezar el servidor, y debe ser un
+numero entero entre 2 y 9.
+
+Despues de esto, se pueden ejecutar ambos clientes y cada uno debe
+comunicarse con el servidor. Al empezar en el cliente debe salir una
+pantalla con el nombre del proyecto, y los nombres de los integrantes
+del grupo. El programa cliente debe tener una forma de leer (puede ser
+en la consola) el IP del servidor al que va a comunicarse y el
+puerto. Despues de comunicarse exitosamente con el servidor, debe
+aparecer un MENU, en el cual el jugador va a elegir el modo de juego
+que quiere: (1) Jugador o (2) Maquina. Luego de elegir la modalidad,
+el programa debe esperar a que el servidor avise cuando el oponente
+(otro jugador o maquina) esten listos, y mandar el tablero inicial, y
+el cliente debe comenzar el juego, desplegando el primer tablero.
+
+Como esta explicado con anterioridad, el juego debe empezar con dos
+numeros en el tablero, que pueden ser, siendo la base elegida N, N o
+(N + N) (En el caso de que la base fuera 2, entonces seria 2 o 4; para
+base 3, seria 3 o 6; y asi sucesivamente). Las posiciones en el
+tablero en donde aparecen, deben ser elegidas aleatoriamente por su
+programa, al igual que el numero que se pondra en cada posicion. Una
+vez desplegado el primer tablero, el programa debe esperar a que el
+usuario elija un movimiento.
+
+El usuario debe ingresar su movimiento por medio de una letra o una
+flecha y ENTER. Los movimientos serian:
+
+Letra W o w para el movimiento hacia arriba
+Letra S o s para el movimiento hacia abajo
+Letra A o a para el movimiento hacia la izquierda
+Letra D o d para el movimiento hacia la derecha
+
+Despues de que el usuario ingresa un movimiento, el programa debe
+modificar el tablero con respecto a las reglas y volverlo a
+desplegar. Cada vez que se realice un nuevo movimiento, se debe
+desplegar lo siguiente en consola:
+
+El tiro que eligio el jugador
+El tablero modificado dado el movimiento elegido
+Cuantas casillas vacias quedan
+Cuantos movimientos se han hecho
+Cual es el numero mayor que se ha obtenido
+
+Como se habia dicho antes, el juego solo puede terminar de dos
+formas. Si el tablero se llena o el jugador llega al mayor valor, el
+jugador debe esperar a que el otro jugador llegue al valor maximo o
+pare el juego voluntariamente (se rinda). El programa cliente de este
+jugador, debe avisar al servidor que el juego fue terminado y la
+razon: tablero lleno, valor maximo o que el jugador se rindio. El
+servidor (si el otro jugador no ha terminado) debe mandar un mensaje
+al cliente indicando que el otro jugador ya termino (no la razon) y se
+debe desplegar en consola para que el jugador sepa.
+
+En el momento de que ambos jugadores hayan terminado, el servidor debe
+"calcular" quien gano, e informar a ambos clientes, mandando los
+siguientes datos: Quien gano, cantidad de movimientos de cada jugador,
+y mayor numero al que llego cada jugador.
+** Juego ganado:
+*** El juego es ganado cuando: 
+**** (1) El jugador llego al maximo numero y el otro jugador se rindio antes de llegar.
+El maximo numero es cuando una de las casillas llega al numero
+equivalente a la base multiplicada por 1024. Por ejemplo para base 2,
+2 por 1024 da 2048, para base 3, 3 por 1024 da 3072. A diferencia del
+juego original, el juego si termina en este punto.
+**** (2) Ambos jugadores se rindieron, pero este jugador llego a un numero mayor que el otro jugador.
+**** (3) Ambos jugadores llegaron al maximo numero, pero este jugador llego en menos movimientos.
+*** El juego es empatado si ambos jugadores tienen los mismos resultados:
+**** numero mayor al que llegaron, cantidad de movimientos.
+** Modo máquina
+Para el modo de Maquina, su programa tiene que tener un algoritmo el
+cual sea capaz de jugar el juego de 2048. La idea principal, es que el
+programa (la maquina) tome una decision de que movimiento tiene que
+hacer dependiendo de el estado del tablero.
+
+Si se elige este modo, los tiros o movimientos seran proporcionados
+por el programa. Estos movimientos NO PUEDEN SER ALEATORIOS. La
+maquina debe tomar una decision, y el algoritmo debe tratar de
+ganar. La maquina debe esperar a que el usuario ingrese un ENTER para
+hacer el siguiente movimiento. Todo lo demas es igual a el juego
+normal.
+** Puntos extra
+Para este proyecto usted puede hacer cualquier tipo cosas extras y
+nosotros consideraremos si se merece los puntos extra por eso o no. He
+aqui algunas ideas de puntos extra que podria intentar implementar
+para su proyecto:
+*** Dar oportunidad de llegar hasta una suma mas, es decir 2048 por la base
+*** Llevar un punteo (dar puntos cada vez que hay suma)
+*** Replay el juego, es decir, ser capaz de volver a mostrar las jugadas que se hicieron por un juego.
+*** Opcion de ayuda, que describa instrucciones del juego
+*** Tener opcion de retroceder (undo)
+** Ejecución y entrega
+Su proyecto debe ejecutarse con el IDE de DrRacket sin dar error de
+ejecucion.
+
+El proyecto se entrega via GES antes o en la fecha indicada. Puede
+crear cuantos archivos .scm necesite, sin embargo el proyecto
+principal debe ir dentro de un archivo llamado 2048.scm. Sus archivos
+o archivo del proyecto debe ir dentro de un archivo .zip llamado
+pj2-GrupoN.zip, en donde N es el numero de grupo que se le asigno, si
+su archivo no se llama de esa forma automaticamente le bajaremos 10
+puntos sobre el proyecto.
+
+Para que se le asigne un grupo, debe mandar un email a
+cc1fisicc@galileo.edu, en el cual debe indicar los integrantes del
+grupo, no olvide incluir la seccion, si no incluye su seccion, no se
+le asignara grupo. Si no manda este email a tiempo, no podra entregar
+el proyecto ya que hay que configurar su grupo en el GES para que lo
+pueda entregar.
+
+cc1fisicc@galileo.edu
