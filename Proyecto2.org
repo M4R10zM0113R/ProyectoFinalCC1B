@@ -1,5 +1,3 @@
-* DONE Formato
-  CLOSED: [2017-05-24 Wed 15:01]
 * Proyecto #2: 2048
 Ciencias de la Computacion I - 2017
 Proyecto #2 - 2048
